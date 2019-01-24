@@ -1,0 +1,1 @@
+create index psam_custid_idx on psam_pusa (cust_id);
