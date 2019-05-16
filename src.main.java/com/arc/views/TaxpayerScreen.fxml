@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="813.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arc.controllers.TaxpayerScreenController">
+  <children>
+    <MenuBar fx:id="menuBar" VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+            <Menu fx:id="menu_view" mnemonicParsing="false" text="View">
+              <items>
+                <MenuItem fx:id="menu_account_view" mnemonicParsing="false" onAction="#accountMenuAction" text="Account" />
+                  <MenuItem fx:id="menu_event" mnemonicParsing="false" onAction="#eventMenuAction" text="Event" />
+                  <MenuItem fx:id="menu_system" mnemonicParsing="false" text="System" />
+                  <MenuItem fx:id="menu_explorer" mnemonicParsing="false" onAction="#explorerMenuAction" text="Explorer" />
+              </items>
+            </Menu>
+      </menus>
+    </MenuBar>
+      <SplitPane dividerPositions="0.3743523316062176" layoutX="150.0" layoutY="68.0" orientation="VERTICAL" prefHeight="774.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1198.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e1e1e1" height="139.0" layoutX="10.0" layoutY="7.0" opacity="0.34" stroke="BLACK" strokeType="INSIDE" width="680.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e1e1e1" height="139.0" layoutX="700.0" layoutY="7.0" opacity="0.34" stroke="BLACK" strokeType="INSIDE" width="271.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e1e1e1" height="139.0" layoutX="978.0" layoutY="7.0" opacity="0.34" stroke="BLACK" strokeType="INSIDE" width="209.0" />
+                  <Label layoutX="84.0" layoutY="42.0" text="TIN ">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                  <ButtonBar layoutX="500.0" layoutY="180.0" prefHeight="25.0" prefWidth="2">
+                    <buttons>
+                    	<Button fx:id="searchBtn" mnemonicParsing="false" onAction="#performSearch" text="Search" />
+                        <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#performClear" text="Clear" />
+                    </buttons>
+                  </ButtonBar>
+                  <Label layoutX="801.0" layoutY="45.0" text="MFT Code">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                  <ComboBox fx:id="combobox_mftcode" layoutX="798.0" layoutY="77.0" prefHeight="27.0" prefWidth="72.0" />
+                  <TextField fx:id="validity_cd_txtfield" layoutX="188.0" layoutY="77.0" prefHeight="27.0" prefWidth="22.0" />
+                  <ComboBox fx:id="combobox_taxperiod" layoutX="718.0" layoutY="77.0" prefHeight="27.0" prefWidth="72.0" />
+                  <Label layoutX="718.0" layoutY="43.0" prefHeight="25.0" prefWidth="80.0" text="Tax Period">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                  <TextField fx:id="textfield_tin" layoutX="20.0" layoutY="77.0" prefHeight="27.0" prefWidth="165.0" />
+                  <TextField fx:id="textfield_tin1" layoutX="225.0" layoutY="77.0" prefHeight="27.0" prefWidth="359.0" />
+                  <Label layoutX="384.0" layoutY="42.0" text="Address">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                  <ComboBox fx:id="tm_trans_cd" layoutX="877.0" layoutY="77.0" prefHeight="27.0" prefWidth="72.0" />
+                  <Label layoutX="614.0" layoutY="42.0" prefHeight="27.0" prefWidth="26.0" text="TC" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                  <ComboBox fx:id="tp_trans_cd" layoutX="595.0" layoutY="77.0" prefHeight="27.0" prefWidth="72.0" />
+                  <Label layoutX="895.0" layoutY="42.0" prefHeight="27.0" prefWidth="26.0" text="TC">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="1019.0" layoutY="40.0" prefHeight="27.0" prefWidth="26.0" text="TC">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="event_trans_cd" layoutX="992.0" layoutY="75.0" onAction="#compIndComboChanged" prefHeight="27.0" prefWidth="72.0" />
+                  <ComboBox fx:id="event_comp_ind" layoutX="1070.0" layoutY="75.0" prefHeight="27.0" prefWidth="72.0" />
+                  <Label layoutX="1070.0" layoutY="40.0" prefHeight="27.0" prefWidth="72.0" text="Comp. Ind">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label_taxpayer" layoutX="234.0" layoutY="9.0" prefHeight="33.0" prefWidth="80.0" text="Taxpayer" />
+                  <Label fx:id="label_taxmodule" layoutX="785.0" layoutY="9.0" prefHeight="33.0" prefWidth="102.0" text="Tax Module" />
+                  <Label fx:id="label_events" layoutX="1042.0" layoutY="9.0" prefHeight="33.0" prefWidth="80.0" text="Events" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Pagination fx:id="tpPagination" layoutX="15.0" layoutY="20.0" prefHeight="374.0" prefWidth="1169.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+  </children>
+</VBox>

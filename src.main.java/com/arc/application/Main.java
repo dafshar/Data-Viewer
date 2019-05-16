@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import com.arc.controllers.*;
@@ -17,6 +19,7 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) {
+		
 		
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("CADE 2 Database Explorer");
@@ -34,19 +37,22 @@ public class Main extends Application {
 	 */
 	public void initRootLayout() {
 		try {
-
+			
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("/com/arc/views/BaseAnchor.fxml"));
+			loader.setLocation(Main.class.getResource("/com/arc/views/TaxpayerScreen.fxml"));
 			rootLayout = (VBox) loader.load();
 
 			Scene scene = new Scene(rootLayout);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
 			primaryStage.setScene(scene);
-			primaryStage.show();  
+			primaryStage.show(); 
+			
 			
 			// set controller for this FXML
-			BaseAnchorController contoller = loader.getController();
+			//BaseAnchorController controller = loader.getController();
+			TaxpayerScreenController controller = loader.getController();
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();

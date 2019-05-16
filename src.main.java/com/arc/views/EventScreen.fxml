@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="675.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arc.controllers.EventScreenController">
+  <children>
+    <MenuBar fx:id="menuBar" VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+            <Menu fx:id="menu_view" mnemonicParsing="false" text="View">
+              <items>
+                <MenuItem fx:id="menu_account_view" mnemonicParsing="false" onAction="#eventMenuAction" text="Account" />
+                  <MenuItem fx:id="menu_event" mnemonicParsing="false" text="Event" />
+                  <MenuItem fx:id="menu_system" mnemonicParsing="false" text="System" />
+              </items>
+            </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="421.0" prefWidth="733.0" VBox.vgrow="ALWAYS">
+         <children>
+            <SplitPane layoutX="148.0" layoutY="117.0" orientation="VERTICAL" prefHeight="718.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <SplitPane dividerPositions="0.125" layoutX="150.0" layoutY="68.0" orientation="VERTICAL" prefHeight="354.0" prefWidth="1198.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                 <children>
+                                    <Label layoutX="48.0" layoutY="32.0" text="TIN: " />
+                                    <TextField fx:id="tin_search" layoutX="90.0" layoutY="27.0" />
+                                    <TextField fx:id="validity_search" layoutX="244.0" layoutY="27.0" prefHeight="26.0" prefWidth="22.0" />
+                                    <TextField fx:id="tin_search1" layoutX="244.0" layoutY="27.0" prefHeight="26.0" prefWidth="22.0" />
+                                    <Label layoutX="290.0" layoutY="32.0" text="Date:" />
+                                    <TextField fx:id="date_search" layoutX="330.0" layoutY="27.0" />
+                                    <Label layoutX="490.0" layoutY="32.0" text="Transaction Code:" />
+                                    <TextField fx:id="tc_code_search" layoutX="590.0" layoutY="27.0" />
+                                    <ButtonBar layoutX="750.0" layoutY="18.0" prefHeight="40.0" prefWidth="2">
+                                      <buttons>
+                                          <Button fx:id="searchBtn" mnemonicParsing="false" onAction="#performSearch" text="Search" />
+                                          <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#performClear" text="Clear" />
+                                      </buttons>
+                                    </ButtonBar>
+                                    <Button fx:id="process_event_Btn" layoutX="960.0" layoutY="26.0" mnemonicParsing="false" onAction="#performProcessEvents" text="Process Events" />
+                                 </children>
+                              </AnchorPane>
+                              <SplitPane dividerPositions="0.8" orientation="VERTICAL" prefHeight="200.0" prefWidth="220.0">
+                                <items>
+                                  <AnchorPane maxWidth="1360" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="220.0">
+                                       <children>
+                                          <HBox fx:id="event_main" maxWidth="1360" prefHeight="450.0" prefWidth="1360.0" />
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane maxWidth="1360" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="220.0">
+                                       <children>
+                                          <HBox fx:id="input_event_main" maxWidth="1360" prefHeight="100.0" prefWidth="1360.0" />
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>

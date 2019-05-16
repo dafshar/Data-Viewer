@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.control.Label?>
+
+<?import javafx.scene.control.Menu?>
+
+<?import javafx.scene.control.MenuBar?>
+
+<?import javafx.scene.control.MenuItem?>
+
+<?import javafx.scene.control.SeparatorMenuItem?>
+
+<?import javafx.scene.control.SplitPane?>
+
+<?import javafx.scene.control.Tab?>
+
+<?import javafx.scene.control.TabPane?>
+
+<?import javafx.scene.control.TableColumn?>
+
+<?import javafx.scene.control.TableView?>
+
+<?import javafx.scene.control.TreeView?>
+
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.layout.Pane?>
+
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.paint.Color?>
+
+<?import javafx.scene.text.Font?>
+
+
+
+<VBox prefHeight="600.0" prefWidth="900.0"
+
+	xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1"
+
+	fx:controller="com.arc.controllers.ExplorerScreenController">
+
+	<children>
+
+		<MenuBar VBox.vgrow="NEVER">
+
+			<menus>
+
+				<Menu mnemonicParsing="false" text="File">
+
+					<items>
+
+						<MenuItem fx:id="atNew" mnemonicParsing="false"
+
+							text="New" />
+
+						<MenuItem mnemonicParsing="false" text="Open" />
+
+						<Menu mnemonicParsing="false" text="Open Recent" />
+
+						<SeparatorMenuItem mnemonicParsing="false" />
+
+						<MenuItem mnemonicParsing="false" text="Close" />
+
+						<MenuItem mnemonicParsing="false" text="Save" />
+
+						<MenuItem mnemonicParsing="false" text="Save Asâ€¦" />
+
+						<MenuItem mnemonicParsing="false" text="Revert" />
+
+						<SeparatorMenuItem mnemonicParsing="false" />
+
+						<MenuItem mnemonicParsing="false" text="Preferences" />
+
+						<SeparatorMenuItem mnemonicParsing="false" />
+
+						<MenuItem fx:id="atQuit" mnemonicParsing="false" text="Quit" />
+
+					</items>
+
+				</Menu>
+
+				<Menu mnemonicParsing="false" text="Edit">
+
+					<items>
+
+						<MenuItem mnemonicParsing="false" text="Undo" />
+
+						<MenuItem mnemonicParsing="false" text="Redo" />
+
+						<SeparatorMenuItem mnemonicParsing="false" />
+
+						<MenuItem mnemonicParsing="false" text="Cut" />
+
+						<MenuItem mnemonicParsing="false" text="Copy" />
+
+						<MenuItem mnemonicParsing="false" text="Paste" />
+
+						<MenuItem mnemonicParsing="false" text="Delete" />
+
+						<SeparatorMenuItem mnemonicParsing="false" />
+
+						<MenuItem mnemonicParsing="false" text="Select All" />
+
+						<MenuItem mnemonicParsing="false" text="Unselect All" />
+
+					</items>
+
+				</Menu>
+
+				<Menu mnemonicParsing="false" text="Help">
+
+					<items>
+
+						<MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+
+					</items>
+
+				</Menu>
+
+			</menus>
+
+		</MenuBar>
+
+		<AnchorPane prefHeight="551.0" prefWidth="900.0">
+
+			<children>
+
+				<SplitPane dividerPositions="0.29797979797979796" layoutX="153.0"
+
+					layoutY="147.0" prefHeight="546.0" prefWidth="900.0"
+
+					AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+
+					AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+					<items>
+
+						<AnchorPane fx:id="myTreeAnchor" minHeight="0.0"
+
+							minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+
+							<children>
+
+								<TreeView fx:id="myTree1" layoutX="14.0" layoutY="26.0"
+
+									prefHeight="544.0" prefWidth="264.0" AnchorPane.bottomAnchor="0.0"
+
+									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+
+									AnchorPane.topAnchor="0.0" />
+
+							</children>
+
+						</AnchorPane>
+
+						<AnchorPane fx:id="myTableAnchor" minHeight="0.0"
+
+							minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+
+							<children>
+
+								<TabPane AnchorPane.bottomAnchor="0.0"
+
+									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+
+									AnchorPane.topAnchor="0.0">
+
+									<tabs>
+
+										<Tab fx:id="tab1" text="DSECT">
+
+											<content>
+
+												<AnchorPane fx:id="tab1anchor">
+
+													<children>
+
+														<TableView fx:id="myTable1" prefHeight="544.0"
+
+															prefWidth="626.0">
+
+															<columns>
+
+																<TableColumn fx:id="col1" prefWidth="75.0"
+
+																	text="Code" />
+
+																<TableColumn fx:id="col2" prefWidth="75.0"
+
+																	text="Value" />
+
+																<TableColumn fx:id="col3" prefWidth="132.0"
+
+																	text="Description" />
+
+															</columns>
+
+														</TableView>
+
+													</children>
+
+												</AnchorPane>
+
+											</content>
+
+										</Tab>
+
+										<Tab text="CRL">
+
+											<content>
+
+												<AnchorPane fx:id="tab2anchor" minHeight="0.0"
+
+													minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+
+													<children>
+
+														<TableView fx:id="myTable2" prefHeight="544.0"
+
+															prefWidth="626.0">
+
+															<columns>
+
+																<TableColumn fx:id="elementCOL" prefWidth="75.0"
+
+																	text="Element" />
+
+																<TableColumn fx:id="valueCOL" prefWidth="75.0"
+
+																	text="Value" />
+
+																<TableColumn fx:id="macroCOL" prefWidth="132.0"
+
+																	text="Macro" />
+
+															</columns>
+
+														</TableView>
+
+													</children>
+
+												</AnchorPane>
+
+											</content>
+
+										</Tab>
+
+										<Tab text="DAL">
+
+											<content>
+
+												<AnchorPane fx:id="tab3anchor" minHeight="0.0"
+
+													minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+
+											</content>
+
+										</Tab>
+
+										<Tab text="DOM">
+
+											<content>
+
+												<AnchorPane fx:id="tab4anchor" minHeight="0.0"
+
+													minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+
+											</content>
+
+										</Tab>
+
+									</tabs>
+
+								</TabPane>
+
+							</children>
+
+						</AnchorPane>
+
+					</items>
+
+				</SplitPane>
+
+			</children>
+
+		</AnchorPane>
+
+		<HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
+
+			<children>
+
+				<Label fx:id="leftStatus" maxHeight="1.7976931348623157E308"
+					maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
+
+					<font>
+
+						<Font size="11.0" fx:id="x3" />
+
+					</font>
+
+					<textFill>
+
+						<Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
+
+					</textFill>
+
+				</Label>
+
+				<Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+
+				<Label font="$x3" maxWidth="-1.0" text="Right status"
+
+					textFill="$x4" HBox.hgrow="NEVER" />
+
+			</children>
+
+			<padding>
+
+				<Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+
+			</padding>
+
+		</HBox>
+
+	</children>
+
+</VBox>
+
+ 

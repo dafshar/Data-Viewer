@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<queries>
+    <queryMap>
+        <entry>
+            <key>getTaxpayerAccountTrans</key>
+            <value>select trans_cd, trans_sub_cd, locator_no, end_dt, info_text, posted_cyc_id, eff_end_dt, ssn, account_transaction_sys_id from POSTED_TRANSACTIONS where ssn= ?</value>
+        </entry>
+		<entry>
+            <key>getAllEvents</key>
+            <value>select * from event_view</value>
+        </entry>
+        <entry>
+            <key>getEventsBySysId</key>
+            <value>select * from INPUT_TRANSACTION where ACCOUNT_TRANSACTION_SYS_ID = ?</value>
+        </entry>
+        <entry>
+            <key>getMFTCode</key>
+            <value>Select distinct mft_cd from account_module where SSN= ?</value>
+        </entry>
+        <entry>
+            <key>getTaxPeriod</key>
+            <value>Select posted_cyc_id from account_module where SSN= ? and mft_cd= ?</value>
+        </entry>
+        <entry>
+            <key>getTaxPayerHeader</key>
+            <value>Select FIRST_NAME || ' ' || LAST_NAME as name, birth_dt, address from CUSTOMER where SSN= ?</value>
+        </entry>
+                <entry>
+            <key>getTaxPayerBalance</key>
+            <value>Select SUM (DISTINCT mod.BALANCE_AMT) as Balance from CUSTOMER cust, ACCOUNT_MODULE mod where cust.SSN=mod.SSN and cust.SSN= ?</value>
+        </entry>
+                        <entry>
+            <key>getTaxModuleHeaderByYear</key>
+            <value>select mft_cd, balance_amt from account_module where SSN= ? and mft_cd= ? and posted_cyc_id= ?</value>
+        </entry>
+        <entry>
+            <key>getTaxModuleHeaderByMft</key>
+            <value>select distinct mft_cd, SUM (DISTINCT BALANCE_AMT) as balance_amt from account_module where ssn = ? and mft_cd= ? group by mft_cd</value>
+        </entry>
+        <entry>
+            <key>getTaxModules</key>
+            <value>select mft_cd, trans_cd, trans_sub_cd, locator_no, end_dt, info_text, posted_cyc_id, eff_end_dt, expiration_cd, ssn, account_transaction_sys_id from MODULE_MAIN_VIEW where SSN = ?</value>
+        </entry>
+        <entry>
+            <key>getTaxModulesMftCd</key>
+            <value>select mft_cd, trans_cd, trans_sub_cd, locator_no, end_dt, info_text, posted_cyc_id, eff_end_dt, expiration_cd, ssn, account_transaction_sys_id from MODULE_MAIN_VIEW where SSN = ? and mft_cd = ?</value>
+        </entry>
+        <entry>
+            <key>getTaxModulesTaxYear</key>
+            <value>select mft_cd, trans_cd, trans_sub_cd, locator_no, end_dt, info_text, posted_cyc_id, eff_end_dt, expiration_cd, ssn, account_transaction_sys_id from MODULE_MAIN_VIEW where SSN = ? and mft_cd = ? and posted_cyc_id = ?</value>
+        </entry>
+        <entry>
+            <key>getAllSSN</key>
+            <value>select ssn from customer</value>
+        </entry>
+        <entry>
+            <key>getAllTaxPayerTrans</key>
+            <value>select trans_cd, trans_sub_cd, locator_no, end_dt, info_text, posted_cyc_id, eff_end_dt, ssn, account_transaction_sys_id from POSTED_TRANSACTIONS where account_transaction_sys_id = ?</value>
+        </entry>
+        <entry>
+            <key>getAllTaxPayers</key>
+            <value>select distinct cust.ssn, cust.last_name, cust.first_name, cust.address, cust.birth_dt, cust.tax_amount as balance_amt from customer cust where cust.ssn like ?</value>
+        </entry>
+        <entry>
+            <key>getCompInd</key>
+            <value>select distinct status from account_transaction</value>
+        </entry>
+                <entry>
+            <key>getTaxPayersByCompInd</key>
+            <value>select distinct cust.ssn, cust.last_name, cust.first_name, cust.address, cust.birth_dt, cust.tax_amount as balance_amt from customer cust, account_transaction acct where acct.pin=cust.ssn and cust.ssn like ? and acct.status like ?</value>
+        </entry>
+         <entry>
+            <key>getTransCdCombo</key>
+            <value>select distinct account_transaction_cd from account_transaction</value>
+        </entry>
+        <entry>
+            <key>getTaxPayersByTransCd</key>
+            <value>select distinct cust.ssn, cust.last_name, cust.first_name, cust.address, cust.birth_dt, cust.tax_amount as balance_amt from customer cust, account_transaction acct where acct.pin=cust.ssn and cust.ssn like ? and acct.status = ? and acct.account_transaction_cd = ?</value>
+        </entry>
+    </queryMap>
+</queries>
